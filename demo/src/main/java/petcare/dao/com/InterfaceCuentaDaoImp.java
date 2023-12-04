@@ -8,28 +8,33 @@ import org.springframework.stereotype.Repository;
 import petcare.entities.com.Cuenta;
 import petcare.service.com.InfoJpaSpring;
 @Repository
-public class InterfaceCuentaDaoImp {
+public class InterfaceCuentaDaoImp implements InterfaceCuentasDao{
 	
 	@Autowired
 	InfoJpaSpring infoJpaSpring;
 	
-	void addCuenta(Cuenta cuenta) {
+	@Override
+	public void addCuenta(Cuenta cuenta) {
 		infoJpaSpring.save(cuenta);
 	}
-	void removeCuenta(Cuenta cuenta) {
+	@Override
+	public void removeCuenta(Cuenta cuenta) {
 		infoJpaSpring.delete(cuenta);
 	}
-	List<Cuenta> getAllCuentas(){
+	@Override
+	public List<Cuenta> getAllCuentas(){
 		return infoJpaSpring.findAll();
 	}
-	void removeCuenta(int idCuenta) {
+	@Override
+	public void removeCuenta(int idCuenta) {
 		infoJpaSpring.deleteById(idCuenta);
 	}
+	@Override
 	public Cuenta retrieveCuenta(int idCuenta) {
 		return infoJpaSpring.findById(idCuenta).orElse(null);
 	}
-	
-	void updateCuenta(Cuenta cuenta) {
+	@Override
+	public void updateCuenta(Cuenta cuenta) {
 		infoJpaSpring.save(cuenta);
 	}
 }

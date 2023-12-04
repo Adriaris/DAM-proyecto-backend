@@ -24,32 +24,32 @@ public class ControllerCuenta {
 	@Autowired
 	CuentaService cuentaService;
 	
-	@GetMapping(value="cuenta", produces=MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value="cuentas", produces=MediaType.APPLICATION_JSON_VALUE)
 	public List<Cuenta> retrieveInfo(){
 		return cuentaService.getAllCuentas();
 	}
 	
-	@GetMapping(value="cuenta/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value="cuentas/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
 	public Cuenta retrieveCuenta(@PathVariable("id")int id) {
 		return cuentaService.retrieveCuenta(id);
 	}
 	
-	@PostMapping(value="cuenta", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value="cuentasPost", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	boolean altaCuenta(@RequestBody Cuenta cuenta) {
 		return cuentaService.addCuenta(cuenta);
 	}
 	
-	@PutMapping(value="cuenta", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(value="cuentasPut", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
 	boolean UpdateCuenta(@RequestBody Cuenta cuenta) {
 		return cuentaService.updateCuenta(cuenta);
 	}
 	
-	@DeleteMapping(value="cuenta", produces=MediaType.APPLICATION_JSON_VALUE)
+	@DeleteMapping(value="cuentasDeleteEnt", produces=MediaType.APPLICATION_JSON_VALUE)
 	boolean deleteCuentaEnt(@RequestBody Cuenta cuenta) {
 		return cuentaService.removeCuenta(cuenta);
 	}
 	
-	@DeleteMapping(value="cuenta", produces=MediaType.APPLICATION_JSON_VALUE)
+	@DeleteMapping(value="cuentasDeleteInt", produces=MediaType.APPLICATION_JSON_VALUE)
 	boolean deleteCuentaId(@RequestBody int id) {
 		return cuentaService.removeCuenta(id);
 	}

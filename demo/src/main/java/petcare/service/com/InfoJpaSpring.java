@@ -11,6 +11,6 @@ import petcare.entities.com.Cuenta;
 public interface InfoJpaSpring extends JpaRepository<Cuenta, Integer> {
 	@Transactional
 	@Modifying
-	@Query("Delete from cuenta i Where i.idCuenta=?1")
+	@Query("Delete from Cuenta i Where i.idCuenta=?1")
 	void removeByName(int id);
 }

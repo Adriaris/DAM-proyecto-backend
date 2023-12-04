@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 import petcare.dao.com.InterfaceCuentasDao;
 import petcare.entities.com.Cuenta;
 @Service
-public class CuentaServiceImpl {
+public class CuentaServiceImpl implements CuentaService{
 	
 	@Autowired
 	InterfaceCuentasDao daoCuenta;
 	
-	boolean addCuenta(Cuenta cuenta) {
+	public boolean addCuenta(Cuenta cuenta) {
 		if(daoCuenta.retrieveCuenta(cuenta.getIdCuenta()) == null) {
 			daoCuenta.addCuenta(cuenta);
 			return true;
@@ -21,7 +21,7 @@ public class CuentaServiceImpl {
 		return false;
 	}
 	
-	boolean removeCuenta(Cuenta cuenta) {
+	public boolean removeCuenta(Cuenta cuenta) {
 		if(daoCuenta.retrieveCuenta(cuenta.getIdCuenta()) != null) {
 			daoCuenta.removeCuenta(cuenta);
 			return true;
@@ -29,20 +29,22 @@ public class CuentaServiceImpl {
 		return false;
 	}
 	
-	List<Cuenta> getAllCuentas(){
-		return daoCuenta.getAllCuentas();
-	}
-	boolean removeCuenta(int idCuenta) {
+	public boolean removeCuenta(int idCuenta) {
 		if(daoCuenta.retrieveCuenta(idCuenta) != null) {
 			daoCuenta.removeCuenta(idCuenta);
 			return true;
 		}
 		return false;
 	}
-	Cuenta retrieveCuenta(int idCuenta) {
+	
+	public List<Cuenta> getAllCuentas(){
+		return daoCuenta.getAllCuentas();
+	}
+	
+	public Cuenta retrieveCuenta(int idCuenta) {
 		return daoCuenta.retrieveCuenta(idCuenta);
 	}
-	boolean updateCuenta(Cuenta cuenta) {
+	public boolean updateCuenta(Cuenta cuenta) {
 		if(daoCuenta.retrieveCuenta(cuenta.getIdCuenta()) != null) {
 			daoCuenta.addCuenta(cuenta);
 			return true;

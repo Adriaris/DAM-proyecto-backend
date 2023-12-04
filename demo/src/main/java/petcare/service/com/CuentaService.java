@@ -2,8 +2,10 @@ package petcare.service.com;
 
 import java.util.List;
 
-import petcare.entities.com.Cuenta;
+import org.springframework.stereotype.Service;
 
+import petcare.entities.com.Cuenta;
+@Service
 public interface CuentaService {
 	boolean addCuenta(Cuenta cuenta);
 	boolean removeCuenta(Cuenta cuenta);
