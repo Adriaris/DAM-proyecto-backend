@@ -1,0 +1,8 @@
+La ruta ejecutable se encuentra en demo/src/main/java/com/example/
+La ruta de las clases y entidades se encuentran en demo/src/main/java/petcare. Estan todas las carpetas, cada una contiene sus clases e interfaces
+
+  En la configuración de "application.properties" tienes que poner en la parte de "spring.datasource.url" la url para acceder a la base de datos
+  que tendrás en tu máquina.
+  "spring.datasource.username" tendrás que introducir el usuario que usas para acceder a la base de datos y "spring.datasource.password" la
+  constraseña. Si no tienes contraseña puedes obviar esta propiedad.
+  Todas las propiedades restantes han de quedar iguales al documento que se encuentra en demo/src/main/resources
